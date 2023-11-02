@@ -16,7 +16,7 @@ class NueralNetwork:
             classes (int): count of number of classes in datast.
         """
         if classes == 2:
-            perceptron = Perceptron(0.9,60000)
+            perceptron = Perceptron(0.9,600)
             perceptron.train(data[0],data[1])
             self.perceptrons.append(perceptron)
 

@@ -20,17 +20,17 @@ class Perceptron:
         """
         no_features = len(input_pattern[0])+1
         self.weight_vector = [0]*no_features
-        pattern_index = 0
+        
         for i in range(self.iterations):
-            pattern = copy.deepcopy(input_pattern[pattern_index])
-            output = self.predict(pattern)
-            error = desired_output[pattern_index] - output
-            if error != 0:
-                delta_w = self.deltaWeightVector(pattern,error)
-                self.updateWeightVector(delta_w)
-            pattern_index += 1
-            if pattern_index == len(input_pattern):
-                pattern_index = 0
+            pattern_index = 0
+            for pattern in input_pattern:
+                pattern = copy.deepcopy(pattern)
+                output = self.predict(pattern)
+                error = desired_output[pattern_index] - output
+                if error != 0:
+                    delta_w = self.deltaWeightVector(pattern,error)
+                    self.updateWeightVector(delta_w)
+                pattern_index += 1
     
     def localInducedField(self,input_v):
         """
